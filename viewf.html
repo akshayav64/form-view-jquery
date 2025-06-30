@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View using jQuery</title>
+    <h1 style="text-align: center;color: black;font-style: italic;">Data</h1>
+    <style>
+        .box{
+            display:flex;
+            flex-direction: column;
+
+        }
+        .con {
+            border: 2px solid gainsboro;
+            width: 60%;
+            border-radius: 10px;
+            background-color: beige;
+            padding: 30px;
+            margin-top: 10px;
+            gap: 20px;
+            justify-content: center;
+            margin-left: auto;
+            margin-right: auto;
+            font-style: italic;
+        }
+        .ele {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .ele h2 {
+            flex: 1;
+            margin: 0;
+        }
+        .ele input {
+            flex:1;
+            padding: 15px;
+            margin-left: 10px;
+        }
+
+        a{
+            margin-top: 20px;
+            padding: 10px;
+            width: 100px;
+            margin-left: 260px;
+            text-align: center;
+            background-color: #f4f4f4;
+            border: 2px solid black;
+            text-decoration: none;
+            color: black;
+            border-radius: 20px;
+  
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box" sty >
+    <a href="formf.html">Back</a>
+    
+    <div class="con">
+        
+        <div class="ele">
+            
+            <h2>First Name</h2>
+            <input type="text" id="fname" name="fname" value="" >
+        </div>
+        <div class="ele">
+            <h2>Last Name</h2>
+            <input type="text" id="lname" name="lname" >
+        </div>
+        <div class="ele">
+            <h2>Address</h2>
+            <input type="text" id="address" name="address"  >
+        </div>
+        <div class="ele">
+            <h2>Phone Number</h2>
+            <input type="text" id="phone" name="phone" >
+        </div>
+        <div class="ele">
+            <h2>Email</h2>
+            <input type="email" id="email" name="email" >
+        </div>
+        <div class="ele">
+            <h2>Occupation</h2>
+            <input type="text" id="occupation" name="occupation" >
+        </div>
+        <div class="ele">
+            <h2>Company/Institute Name</h2>
+            <input type="text" id="cname" name="company"  >
+        </div>
+
+    </div>
+</div>
+   
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+           $(document).ready(function() {
+            var formdata = localStorage.getItem('formdata');
+            console.log(  formdata);
+            if (formdata) {
+                var data = JSON.parse(formdata);
+               // console.log("Parsed data:", data);
+               // console.log("Parsed data:", data.firstName);    
+                 $('#fname').val(data.firstName);
+                 $( '#lname').val(data.lastName);
+                 $('#address').val(data.Address);
+                 $('#phone').val(data.phone);
+                 $('#email').val(data.email);
+                 $('#occupation').val(data.Occupation);
+                $('#cname').val(data.cname);
+            }
+        });
+    </script>
+</body>
+</html>
